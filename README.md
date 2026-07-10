@@ -1,144 +1,242 @@
-# DMA controller
-# Direct Memory Access (DMA) Controller
+# 🚀 Direct Memory Access (DMA) Controller
 
-A simulation of a **Direct Memory Access (DMA) Controller** demonstrating high-speed data transfer between memory and I/O devices with minimal CPU intervention. This project implements and compares **Burst Mode** and **Cycle Stealing Mode** using **Logisim** and **Python**.
+<p align="center">
 
-## Overview
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
+![Logisim](https://img.shields.io/badge/Logisim-Evolution-green?style=for-the-badge)
+![Architecture](https://img.shields.io/badge/Computer-Architecture-orange?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-red?style=for-the-badge)
 
-Direct Memory Access (DMA) allows data to be transferred directly between memory and I/O devices without requiring continuous CPU involvement. This improves system performance by reducing CPU workload and increasing data transfer efficiency.
+</p>
 
-This project includes:
-- Hardware-level DMA design using **Logisim**
-- Software simulation using **Python**
-- Comparison of **Burst Mode** and **Cycle Stealing Mode**
-- Bus arbitration using **Bus Request (BR)** and **Bus Grant (BG)** signals
-
----
-
-## Features
-
-- DMA Controller simulation
-- Burst Mode implementation
-- Cycle Stealing Mode implementation
-- Bus Request (BR) and Bus Grant (BG) handshake
-- Logisim hardware simulation
-- Python GUI-based simulation
-- Thread-based DMA simulation
-- Performance comparison between DMA modes
+<p align="center">
+A hardware and software simulation of a <b>Direct Memory Access (DMA) Controller</b> demonstrating efficient memory-I/O data transfers using <b>Logisim</b> and <b>Python</b>.
+</p>
 
 ---
 
-## Technologies Used
+# 📖 Overview
 
-- Logisim Evolution
-- Python 3
-- Tkinter (GUI)
-- Matplotlib (Performance Graphs)
-- Threading
+Modern computer systems rely on **Direct Memory Access (DMA)** to move data between memory and I/O devices without continuously involving the CPU.
 
----
+This project demonstrates how DMA improves:
 
-## DMA Transfer Modes
+- ⚡ Data transfer speed
+- 🧠 CPU utilization
+- 🚌 Bus efficiency
+- 📈 Overall system performance
 
-### Burst Mode
-- DMA takes full control of the system bus.
-- Transfers an entire block of data continuously.
-- Highest transfer speed.
-- CPU remains paused until transfer completes.
-
-### Cycle Stealing Mode
-- DMA transfers one word at a time.
-- CPU regains bus access between transfers.
-- Better CPU responsiveness.
-- Slightly slower than Burst Mode.
+Both **Burst Mode** and **Cycle Stealing Mode** are implemented and compared using hardware and software simulations.
 
 ---
 
-## Bus Arbitration
+# ✨ Features
 
-The DMA controller communicates with the CPU using:
+✅ Logisim DMA Controller
 
-- **BR (Bus Request):** DMA requests control of the system bus.
-- **BG (Bus Grant):** CPU grants bus access to the DMA controller.
+✅ Burst Mode
 
-This handshake ensures safe and conflict-free data transfers.
+✅ Cycle Stealing Mode
+
+✅ BR/BG Bus Arbitration
+
+✅ Python GUI Simulation
+
+✅ Thread-based DMA Simulation
+
+✅ Performance Comparison
+
+✅ Memory Transfer Visualization
 
 ---
 
-## Project Structure
+# 🏗️ Project Architecture
 
+```text
+              +----------------+
+              |      CPU       |
+              +-------+--------+
+                      |
+                 Bus Request
+                      |
+                      ▼
+          +----------------------+
+          |    DMA Controller    |
+          +----------+-----------+
+                     |
+             Bus Grant / Control
+                     |
+      +--------------+--------------+
+      |                             |
+      ▼                             ▼
++-------------+              +--------------+
+| I/O Device  |────────────▶ | Main Memory  |
++-------------+              +--------------+
 ```
-DMA-Controller/
+
+---
+
+# 🔄 DMA Modes
+
+| 🚀 Burst Mode | 🔄 Cycle Stealing |
+|---------------|------------------|
+| Highest speed | CPU remains responsive |
+| CPU paused | CPU executes between transfers |
+| Continuous bus access | Bus shared every cycle |
+
+---
+
+# 📊 Performance
+
+| Feature | Burst | Cycle Stealing |
+|---------|-------|----------------|
+| Transfer Speed | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
+| CPU Availability | ❌ | ✅ |
+| Bus Utilization | High | Moderate |
+| Throughput | High | Medium |
+
+---
+
+# 📷 Screenshots
+
+## Logisim Circuit
+
+> Add your screenshot here
+
+```md
+![Burst Mode](images/burst_mode.png)
+```
+
+---
+
+## Cycle Stealing
+
+```md
+![Cycle Stealing](images/cycle_stealing.png)
+```
+
+---
+
+## Python GUI
+
+```md
+![GUI](images/gui.png)
+```
+
+---
+
+## Performance Graph
+
+```md
+![Performance](images/performance_graph.png)
+```
+
+---
+
+# ⚙️ Technologies Used
+
+| Technology | Purpose |
+|------------|---------|
+| Python | Software Simulation |
+| Tkinter | GUI |
+| Threading | Parallel Execution |
+| Matplotlib | Performance Graph |
+| Logisim Evolution | Hardware Design |
+
+---
+
+# 📂 Project Structure
+
+```text
+DMA-Controller
 │
-├── Logisim/
+├── Logisim
 │   ├── Burst_Mode.circ
 │   └── Cycle_Stealing.circ
 │
-├── Python/
+├── Python
 │   ├── dma_gui.py
 │   ├── dma_thread.py
-│   └── requirements.txt
 │
+├── images
 │
 ├── Report_DMA.pdf
+│
 └── README.md
 ```
 
 ---
 
-## Results
+# 🚀 Getting Started
 
-| Feature | Burst Mode | Cycle Stealing |
-|----------|------------|----------------|
-| Transfer Speed | Fast | Moderate |
-| CPU Availability | No | Yes |
-| Bus Control | Continuous | One Cycle at a Time |
-| Throughput | High | Medium |
+Clone the repository
 
-The simulations demonstrate:
+```bash
+git clone https://github.com/zamanv/DMA-controller.git
+```
 
-- Reduced CPU workload
-- Efficient bus utilization
-- Successful memory-to-I/O data transfers
-- Correct BR/BG handshake operation
+Move into the project
 
----
+```bash
+cd DMA-controller
+```
 
-## Learning Outcomes
+Run the Python simulation
 
-- Understanding DMA architecture
-- Bus arbitration techniques
-- Logisim-based digital circuit design
-- Python-based hardware simulation
-- Performance comparison of DMA transfer modes
+```bash
+python dma_gui.py
+```
 
 ---
 
-## Future Improvements
+# 🎯 Learning Outcomes
 
-- Multi-channel DMA support
-- Priority-based bus arbitration
+- Computer Organization
+- DMA Architecture
+- Bus Arbitration
+- Memory Systems
+- Hardware Simulation
+- Python GUI Programming
+- Performance Analysis
+
+---
+
+# 🔮 Future Improvements
+
+- Multi-channel DMA
+
 - Scatter-Gather DMA
-- Interrupt-driven DMA completion
-- Integration with processor simulation
+
+- Interrupt-driven DMA
+
+- Priority Bus Arbitration
+
+- Cache Coherency Support
 
 ---
 
-## References
+# 📚 References
 
-- William Stallings – *Computer Organization and Architecture*
-- David A. Patterson & John L. Hennessy – *Computer Organization and Design*
+- Computer Organization and Architecture — William Stallings
+
+- Computer Organization and Design — Patterson & Hennessy
+
 - Logisim Evolution
-- GeeksforGeeks – Direct Memory Access (DMA)
 
 ---
 
-## Author
+# 👨‍💻 Author
 
-**Adil Zaman V**
+## Adil Zaman V
 
-Government Engineering College, Idukki
+🎓 Government Engineering College, Idukki
 
 Department of Computer Science & Engineering
 
-Course: Computer Organization and Architecture
+---
+
+<p align="center">
+
+⭐ If you found this project useful, consider giving it a star!
+
+</p>
